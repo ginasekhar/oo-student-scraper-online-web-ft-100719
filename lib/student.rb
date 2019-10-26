@@ -5,9 +5,10 @@ class Student
   @@all = []
 
   def initialize(student_hash)
-    @name = student_hash[:name]
-    @location = student_hash[:name]
-    @profile_url = student_hash[:profile_url]
+    attributes.each {|key, value| self.send(("#{key}="), value)}
+    # @name = student_hash[:name]
+    # @location = student_hash[:name]
+    # @profile_url = student_hash[:profile_url]
   end
 
   def self.create_from_collection(students_array)
